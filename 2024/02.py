@@ -1,4 +1,4 @@
-# https://adventofcode.com/2024/day/2
+from util import *
 
 
 def is_safe(nums):
@@ -32,20 +32,19 @@ def is_safe_ignore_one(nums):
 
 safe = 0
 safe_ignore_one = 0
-with open("02.input") as f:
-    for line in f:
-        nums = list(map(int, line.strip().split()))
-        if is_safe(nums):
-            safe += 1
-        if is_safe_ignore_one(nums):
-            safe_ignore_one += 1
+for line in read_input():
+    nums = list(map(int, line.split()))
+    if is_safe(nums):
+        safe += 1
+    if is_safe_ignore_one(nums):
+        safe_ignore_one += 1
 
 
-print(f"safe: {safe}")
-print(f"safe_ignore_one: {safe_ignore_one}")
+print(f"Part 1: {safe}")
+print(f"Part 2: {safe_ignore_one}")
 
 
-print("== Test 1")
+dprint("== Test 1")
 tests_1 = {
     "7 6 4 2 1": True,
     "1 2 7 8 9": False,
@@ -55,10 +54,10 @@ tests_1 = {
     "1 3 6 7 9": True,
 }
 for vals, expected in tests_1.items():
-    print(f"{vals}: {is_safe(list(map(int, vals.split())))} == {expected}")
+    dprint(f"{vals}: {is_safe(list(map(int, vals.split())))} == {expected}")
 
 
-print("== Test 2")
+dprint("== Test 2")
 tests_2 = {
     "7 6 4 2 1": True,
     "1 2 7 8 9": False,
@@ -68,4 +67,4 @@ tests_2 = {
     "1 3 6 7 9": True,
 }
 for vals, expected in tests_2.items():
-    print(f"{vals}: {is_safe_ignore_one(list(map(int, vals.split())))} == {expected}")
+    dprint(f"{vals}: {is_safe_ignore_one(list(map(int, vals.split())))} == {expected}")

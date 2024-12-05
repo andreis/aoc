@@ -1,11 +1,10 @@
-# https://adventofcode.com/2024/day/1
+from util import *
 
 first, second = list(), list()
-with open("01.input") as f:
-    for line in f:
-        l, r = line.strip().split()
-        first.append(int(l))
-        second.append(int(r))
+for line in read_input():
+    l, r = line.split()
+    first.append(int(l))
+    second.append(int(r))
 
 print(sum(map(lambda t: abs(t[0] - t[1]), zip(sorted(first), sorted(second)))))
 
