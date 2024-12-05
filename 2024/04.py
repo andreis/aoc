@@ -65,21 +65,10 @@ def part_1():
             buf = buf[1:] + [line]
 
         total += xmas_line(buf[-1])
-        dprint(
-            f"""
-    == line: {line}
-    == buf:
-    {"\n".join(buf)}
-    == xmas_line: {xmas_line(buf[-1])}"""
-        )
         if len(buf) < 4:
-            dprint(f"== total: {total}")
             continue
         total += xmas_column(buf)
         total += xmas_diagonal(buf)
-        dprint(f"== xmas_column: {xmas_column(buf)}")
-        dprint(f"== xmas_diagonal: {xmas_diagonal(buf)}")
-        dprint(f"== total: {total}")
 
     print(f"Part 1: {total}")
 
