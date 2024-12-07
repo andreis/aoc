@@ -1,23 +1,16 @@
 from util import *
 from itertools import islice, product
 
-ADD = 0
-MUL = 1
-CONCAT = 2
+ADD = lambda x, y: x + y
+MUL = lambda x, y: x * y
+CONCAT = lambda x, y: int(str(x) + str(y))
 
 
 def check(target, nums, ops):
     for operators in product(ops, repeat=len(nums) - 1):
         result = nums[0]
         for op, num in zip(operators, islice(nums, 1, None)):
-            if op == CONCAT:
-                result = int(str(result) + str(num))
-            elif op == ADD:
-                result += num
-            elif op == MUL:
-                result *= num
-            else:
-                raise Exception("Unknown operator")
+            result = op(result, num)
         if result == target:
             return target
     return 0
