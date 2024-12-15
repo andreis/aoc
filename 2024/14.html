@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Robot Grid</title>
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+      }
+      .grid-item {
+        border: 1px solid #ddd;
+      }
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Robot Grid</h1>
+
+    <div class="grid-container" id="grid-container"></div>
+
+    <script>
+      const container = document.getElementById("grid-container");
+      const numImages = 10000;
+
+      for (let i = 0; i < numImages; i++) {
+        const imgElement = document.createElement("img");
+        imgElement.src = `robots/${i.toString().padStart(4, "0")}.png`;
+        imgElement.alt = `Robot Grid ${i}`;
+
+        const gridItem = document.createElement("div");
+        gridItem.classList.add("grid-item");
+        gridItem.appendChild(imgElement);
+
+        container.appendChild(gridItem);
+      }
+    </script>
+  </body>
+</html>
