@@ -635,3 +635,6 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/linux,macos,windows,visualstudiocode,intellij,vim,emacs,node,python,go,java
 *.input
 .vscode
+
+# Mister Advent of Code hates for his input files to be made public
+*.txt
