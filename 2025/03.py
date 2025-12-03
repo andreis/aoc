@@ -6,18 +6,15 @@ def solve_line(line, answer_size=2):
         hi = len(line) if index == answer_size - 1 else answer[index + 1]
         idx = hi - 1
         target = max(line[answer[index] : hi])
-        while idx < hi:
-            if line[idx] == target:
-                answer[index] = idx
-                break
+        while line[idx] != target:
             idx -= 1
+        answer[index] = idx
 
     return int("".join(map(lambda x: str(line[x]), answer[::-1])))
 
 
 with open("03.txt") as f:
     answer1 = answer2 = 0
-    answer_new = 0
     for line in f.readlines():
         line = list(map(int, line.strip()))
         answer1 += solve_line(line)
