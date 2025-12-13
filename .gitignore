@@ -638,3 +638,4 @@ $RECYCLE.BIN/
 
 # Mister Advent of Code hates for his input files to be made public
 *.txt
+*.md
